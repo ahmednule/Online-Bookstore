@@ -1,6 +1,6 @@
 # Online Bookstore
 
-An Online Bookstore project built with Django that allows users to browse, purchase books, and manage orders. The project includes functionalities such as a shopping cart, checkout process, order management, and PDF receipt generation.
+An Online Bookstore project built with Django that allows users to browse, purchase books, and manage orders. The project includes functionalities such as a shopping cart, checkout process, order management, and PDF receipt generation including signing and loging out
 
 ## Project Structure
 
@@ -19,7 +19,7 @@ Online-Bookstore/
 ```
 
 ## Project Owner
-- **Owner:** Whitney Kageham
+- **Owner:** Whitney Kageha
 - **Institution:** Nairobi Technical Training Institute
 
 ## Requirements

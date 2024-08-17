@@ -19,7 +19,7 @@
                         <h5>Shipping address: <span>{{ order.division }}:{{ order.zip_code }}, {{ order.district }}, {{ order.address }}</span></h5>
                     </div>
                     <div class="download-info">
-                        <a href="{% url 'order:pdf' id=order.id %}"><i class="fa fa-download" aria-hidden="true"></i></a>
+                        <a href="{% url 'order:pdf' id=order.id %}" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
                     </div>
             </div>
         </div>

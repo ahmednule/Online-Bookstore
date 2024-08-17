@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +45,6 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'search.apps.SearchConfig',
     'order.apps.OrderConfig',
-    'crispy_forms',
 ]
 
 
@@ -157,5 +159,8 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert alert-danger',
     messages.DEBUG: 'alert alert-info',
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

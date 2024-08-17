@@ -1,51 +1,49 @@
 {% extends 'store/base.html' %}
 {% load static %}
 {% load customfunction %}
+
 {% block container %}
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="view-details">
-								<img src="{{ wrt.pic.url }}">
-							</div>
-						</div>
-						
-						<div class="col-sm-8">
-							<div class="product-information">
-								<h3>{{ wrt.name }}</h3>
-								<article class="text-justify" style="margin-top:10px;">{{ wrt.bio }}</article>
+<div class="row">
+    <div class="col-sm-12 mb-4">
+        <div class="row">
+            <div class="col-sm-3 text-center">
+                <div class="view-details">
+                    <img src="{{ wrt.pic.url }}" alt="{{ wrt.name }}" class="img-fluid rounded-circle">
+                </div>
+            </div>
 
-							</div>
-						</div>
-					</div>	
-				</div>
+            <div class="col-sm-9">
+                <div class="product-information">
+                    <h3>{{ wrt.name }}</h3>
+                    <article class="text-justify mt-3">{{ wrt.bio }}</article>
+                </div>
+            </div>
+        </div>
+    </div>
 
-				<div class="col-sm-12">
-					<div class="titleheader">
-						<h3 class="h2header text-center">Published Books</h3>
-					</div>
-					<div class="regulara sliderzx">
-						{% for item in book %}
-						<div class="book-wrapper text-center">
-							<div class="coverpage">
-								<img src="{{ item.coverpage.url }}"/>
-							</div>
-							<a href="{% url 'store:book' id=item.id %}">{{ item.name|text_short }}</a>
-							<a href="{% url 'store:writer' id=item.writer.id %}">{{ item.writer }}</a>
-							<div class="rating">
-								{{ item.totalrating|averagerating:item.totalreview }}
-								<span class="totalrating">{{ item.totalreview|add:-1 }}</span>
-							</div>
-							<p> ${{ item.price }} </p>
-							<button class="btn btn-danger" id="addTocart" data-book-id="{{ item.id }}">
-									<i class="fa fa-shopping-cart""></i>Add to cart
-								</button>
-
-
-						</div>
-						{% endfor %}
-					</div>
-				</div>
-			</div>
+    <div class="col-sm-12">
+        <div class="titleheader mb-4">
+            <h3 class="h2header text-center">Published Books</h3>
+        </div>
+        <div class="regulara sliderzx">
+            {% for item in book %}
+            <div class="book-wrapper text-center">
+                <div class="coverpage">
+                    <img src="{{ item.coverpage.url }}" alt="{{ item.name }}" class="img-fluid">
+                </div>
+                <a href="{% url 'store:book' id=item.id %}" class="d-block mt-2">{{ item.name|text_short }}</a>
+                <a href="{% url 'store:writer' id=item.writer.id %}" class="d-block">{{ item.writer }}</a>
+                <div class="rating mt-2">
+                    {{ item.totalrating|averagerating:item.totalreview }}
+                    <span class="totalrating">{{ item.totalreview|add:-1 }}</span>
+                </div>
+                <p class="mt-2">₱{{ item.price }}</p>
+                <button class="btn btn-danger mt-2" id="addTocart" data-book-id="{{ item.id }}">
+                    <i class="fa fa-shopping-cart"></i> Add to cart
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
